@@ -39,11 +39,13 @@ int main()
 			eps[j] =FindError(realRm, Rm[j], realL, l1[j]);
 		}
 		double realRx = FindMid(Rx);
+		double dRx[3] = { 0 };
 		for (int j = 0; j < 3; ++j)
 		{
-			printf("Rx[%i] = %lf,dRx[%i] = %lf,deRx[%i] = %lf  ,(formula)  %lf;\n", j + 1, Rx[j], j + 1, fabs(realRx - Rx[j]), j + 1, fabs(realRx - Rx[j]) /Rx[j] , eps[j]);
+			dRx[j] = fabs(realRx - Rx[j]);
+			printf("Rx[%i] = %lf,dRx[%i] = %lf,deRx[%i] = %lf  ,(formula)  %lf;\n", j + 1, Rx[j], j + 1, dRx[j], j + 1, fabs(dRx[j]) /Rx[j] , eps[j]);
 		}
-		printf("mid Rx = %lf,midEps = %lf, midL = %lf\n", realRx, FindMid(eps), realL);
+		printf("mid Rx = %lf,midEps = %lf, midDRx = %lf\n", realRx, FindMid(eps),FindMid(dRx));
 	}
 	return 0;
 }
