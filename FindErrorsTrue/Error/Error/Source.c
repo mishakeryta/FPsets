@@ -27,7 +27,7 @@ int main()
 		double sumR = 0;
 		for (int j = 0; j < 3; ++j)
 		{
-			Rx[j] = (Rm[j] * l1[j])*(VAL_L - l1[j]);
+			Rx[j] = (Rm[j] * l1[j])/(VAL_L - l1[j]);
 			
 		}
 
